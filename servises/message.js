@@ -2,7 +2,7 @@ const ObjectID = require('mongodb').ObjectID;
 db = require('../index').db;
 
 class Message {
-    constructor(senderID, receiveID, payload) {
+    constructor({senderID, receiveID, payload}) {
         this.senderID = senderID;
         this.receiveID = receiveID;
         this.payload = payload;
@@ -13,9 +13,9 @@ class Message {
     }
 }
 
-exports.create = (senderID, msgData, cb) => {
+exports.create = (msgData, cb) => {
     try {
-        db.collection('messages').insertOne(new Message(senderID, msgData.receiveID, msgData.payload)).then((r) => cb(null, r.insertedId));
+        db.collection('messages').insertOne(new Message(msgData)).then((r) => cb(null, r.insertedId));
     } catch (e) {
         cb(e);
     }
@@ -27,9 +27,9 @@ exports.read = (msgID, cb) => {
         cb(e);
     }
 };
-exports.update = (msgID, senderID, msgData, cb) => {
+exports.update = (msgID, msgData, cb) => {
     try {
-        db.collection('messages').updateOne({_id: ObjectID(msgID)}, new Message(senderID, msgData.receiveID, msgData.payload)).then((r) => cb(null, r.result));
+        db.collection('messages').updateOne({_id: ObjectID(msgID)}, new Message(msgData)).then((r) => cb(null, r.result));
     } catch (e) {
         cb(e);
     }

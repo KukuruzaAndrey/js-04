@@ -1,7 +1,7 @@
 router = require('express').Router();
 msgService = require('../servises/message');
-router.post('/user/:userID/msg', (req, res) => {
-    msgService.create(req.params.userID, req.body, (err, data) => {
+router.post('/msg', (req, res) => {
+    msgService.create(req.body, (err, data) => {
         if (err) {
             res.status(400);
             console.log(err);
@@ -11,7 +11,7 @@ router.post('/user/:userID/msg', (req, res) => {
         }
     });
 });
-router.get('/user/:userID/msg/:msgID', (req, res) => {
+router.get('/msg/:msgID', (req, res) => {
     msgService.read(req.params.msgID, (err, data) => {
         if (err) {
             res.status(400);
@@ -22,8 +22,8 @@ router.get('/user/:userID/msg/:msgID', (req, res) => {
         }
     });
 });
-router.put('/user/:userID/msg/:msgID', (req, res) => {
-    msgService.update(req.params.msgID, req.params.userID, req.body, (err, data) => {
+router.put('/msg/:msgID', (req, res) => {
+    msgService.update(req.params.msgID, req.body, (err, data) => {
         if (err) {
             res.status(400);
             console.log(err);
@@ -33,7 +33,7 @@ router.put('/user/:userID/msg/:msgID', (req, res) => {
         }
     });
 });
-router.delete('/user/:userID/msg/:msgID', (req, res) => {
+router.delete('/msg/:msgID', (req, res) => {
     msgService.delete(req.params.msgID, (err, data) => {
         if (err) {
             res.status(400);
