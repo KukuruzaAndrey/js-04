@@ -107,7 +107,7 @@
 
 * **URL**
 
-  /user/:id/msg
+  /msg
 
 * **Method:**
 
@@ -117,6 +117,7 @@
 
  ```javascript
 {
+	"senderID":"593b697154a29d3408fef934",
 	"receiveID":"596b4b4060cac602e0702ea0",
 	"payload":"hi"
 }
@@ -131,7 +132,7 @@
 
 * **URL**
 
-  /user/:id/msg/:id
+  /msg/:id
 
 * **Method:**
 
@@ -154,7 +155,7 @@
 
 * **URL**
 
-  /user/:id/msg/:id
+  /msg/:id
 
 * **Method:**
 
@@ -164,6 +165,7 @@
 
  ```javascript
 {
+	"senderID":"593b697154a29d3408fef934",
 	"receiveID":"596b4b4060cac602e0702ea0",
 	"payload":"hi"
 }
@@ -185,7 +187,7 @@
 
 * **URL**
 
-  /user/:id/msg/:id
+  /msg/:id
 
 * **Method:**
 
@@ -226,7 +228,7 @@
       },
       {
         "_id": "596b4bae60cac602e0702ea1",
-       "name": "name2",
+        "name": "name2",
         "surname": "surname2",
         "email": "email2"
       }
