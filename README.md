@@ -203,6 +203,68 @@
       "ok": 1
     }
     ```
+    
+## Get all users
+
+* **URL**
+
+  /user
+
+* **Method:**
+
+  `GET`
+
+* **Success Response:**
+  
+  * **Code:** 200 <br />
+    **Content:** 
+    ```javascript
+    [
+      {
+        "_id": "596b4b4060cac602e0702ea0",
+        "name": "name1",
+        "surname": "surname1",
+        "email": "email1"
+      },
+      {
+        "_id": "596b4bae60cac602e0702ea1",
+        "name": "name2",
+        "surname": "surname2",
+        "email": "email2"
+      }
+    ]
+    ```
+    
+## Get all messages
+
+* **URL**
+
+  /msg
+
+* **Method:**
+
+  `GET`
+
+* **Success Response:**
+  
+  * **Code:** 200 <br />
+    **Content:** 
+    ```javascript
+    [
+      {
+      	"_id": "596b6f1854929d2408fef935",
+      	"senderID": "596b4cb62ef7c92f748b4c1d",
+      	"receiveID": "596b4b4060cac602e0702ea0",
+      	"payload": "hi"
+    } ,
+      {
+     	"_id": "596b6f1854929d2408fef935",
+      	"senderID": "596b4cb62ef7c92f748b4c1d",
+      	"receiveID": "596b4b4060cac602e0702ea0",
+      	"payload": "hi"
+      } 
+    ]
+    ```
 
 ## Get all users with whom this user has been rewritten
 
