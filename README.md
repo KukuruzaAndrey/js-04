@@ -266,11 +266,41 @@
     ]
     ```
 
-## Get all users with whom this user has been rewritten
+## Get a list of users who this user wrote to
 
 * **URL**
 
   /user/:id/receivers
+
+* **Method:**
+
+  `GET`
+
+* **Success Response:**
+  
+  * **Code:** 200 <br />
+    **Content:** 
+    ```javascript
+    [
+      {
+        "_id": "596b4b4060cac602e0702ea0",
+        "name": "name1",
+        "surname": "surname1",
+        "email": "email1"
+      },
+      {
+        "_id": "596b4bae60cac602e0702ea1",
+        "name": "name2",
+        "surname": "surname2",
+        "email": "email2"
+      }
+    ]
+    ```
+    
+## Get a list of users who wrote to this user
+* **URL**
+
+  /user/:id/senders
 
 * **Method:**
 
