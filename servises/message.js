@@ -41,3 +41,10 @@ exports.delete = (msgID, cb) => {
         cb(e);
     }
 };
+exports.all = (cb) => {
+    try {
+        db.collection('messages').find({}).toArray().then((r) => cb(null, r));
+    } catch (e) {
+        cb(e);
+    }
+};

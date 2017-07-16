@@ -41,6 +41,14 @@ exports.delete = (userID, cb) => {
         cb(e);
     }
 };
+exports.all = (cb) => {
+    try {
+        db.collection('users').find({}).toArray().then((r) => cb(null, r));
+    } catch (e) {
+        cb(e);
+    }
+};
+
 //да, знаю, якісь костилі, але не знав як правильно спроектувати базу для зручної вибірки
 exports.allReceivers = (senderID, cb) => {
     try {
