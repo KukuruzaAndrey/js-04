@@ -49,7 +49,7 @@ exports.all = (cb) => {
     }
 };
 
-//да, знаю, якісь костилі, але не знав як правильно спроектувати базу для зручної вибірки
+//кому ти писав
 exports.allReceivers = (senderID, cb) => {
     try {
         db.collection('messages').find({senderID: senderID}).toArray()
@@ -57,6 +57,21 @@ exports.allReceivers = (senderID, cb) => {
                     const receivers = new Set(r.map(el => el.receiveID));
                     const receiversID = [...receivers].map(el => ObjectID(el));
                     db.collection('users').find({_id: {$in: receiversID}}).toArray().then(r => cb(null, r));
+                }
+            );
+    }
+    catch (e) {
+        cb(e);
+    }
+};
+//хто тобі писав
+exports.allSenders = (receiveID, cb) => {
+    try {
+        db.collection('messages').find({receiveID: receiveID}).toArray()
+            .then((r) => {
+                    const senders = new Set(r.map(el => el.senderID));
+                    const sendersID = [...senders].map(el => ObjectID(el));
+                    db.collection('users').find({_id: {$in: sendersID}}).toArray().then(r => cb(null, r));
                 }
             );
     }

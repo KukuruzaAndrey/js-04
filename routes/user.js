@@ -67,5 +67,15 @@ router.get('/user/:userID/receivers', (req, res) => {
         }
     });
 });
-
+router.get('/user/:userID/senders', (req, res) => {
+    userService.allReceivers(req.params.userID, (err, data) => {
+        if (err) {
+            res.status(400);
+            console.log(err);
+            res.end();
+        } else {
+            res.send(data)
+        }
+    });
+});
 module.exports = router;
